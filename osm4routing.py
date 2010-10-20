@@ -96,6 +96,7 @@ def parse(file, output="csv", edges_name="edges", nodes_name="nodes"):
         n.write('"node_id","longitude","latitude"\n')
 
     pbar = ProgressBar(maxval=len(nodes))
+    pbar.start()
     count = 0
     for node in nodes:
         if output == "csv":
@@ -115,6 +116,7 @@ def parse(file, output="csv", edges_name="edges", nodes_name="nodes"):
     print "Step 3: saving the edges"
     edges = p.get_edges()
     pbar = ProgressBar(maxval=len(edges))
+    pbar.start()
     count = 0
     if output == "csv":
         e = open(edges_name + '.csv', 'w')
